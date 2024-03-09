@@ -6,13 +6,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.techquiz.databinding.QuizCategoryItemRowBinding
 import com.example.techquiz.main.model.QuizModel
 
-class QuizCategoryAdapter(private val quizCategoryList : List<QuizModel>):
+class QuizCategoryAdapter(
+    private val quizCategoryList: List<QuizModel>,
+    private val onItemClick: (QuizModel) -> Unit
+) :
     RecyclerView.Adapter<QuizCategoryAdapter.MyViewHolder>() {
 
+    class MyViewHolder(
+        private val binding: QuizCategoryItemRowBinding,
+        private val onItemClick: (Int) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-    class MyViewHolder(private val binding: QuizCategoryItemRowBinding): RecyclerView.ViewHolder(binding.root){
+        init {
+            itemView?.setOnClickListener {
+                onItemClick(adapterPosition)
+            }
+        }
 
-        fun bind(model: QuizModel){
+        fun bind(model: QuizModel) {
             binding?.apply {
                 quizTitleText.text = model.title ?: "NA"
                 quizSubtitleText.text = model.subTitle
@@ -21,8 +32,11 @@ class QuizCategoryAdapter(private val quizCategoryList : List<QuizModel>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = QuizCategoryItemRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return MyViewHolder(binding)
+        val binding =
+            QuizCategoryItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding) {
+            onItemClick(quizCategoryList[it])
+        }
     }
 
     override fun getItemCount(): Int {

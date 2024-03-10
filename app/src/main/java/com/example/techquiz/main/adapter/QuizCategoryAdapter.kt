@@ -7,7 +7,7 @@ import com.example.techquiz.databinding.QuizCategoryItemRowBinding
 import com.example.techquiz.main.model.QuizModel
 
 class QuizCategoryAdapter(
-    private val quizCategoryList: List<QuizModel>,
+    private var quizCategoryList: List<QuizModel>,
     private val onItemClick: (QuizModel) -> Unit
 ) :
     RecyclerView.Adapter<QuizCategoryAdapter.MyViewHolder>() {

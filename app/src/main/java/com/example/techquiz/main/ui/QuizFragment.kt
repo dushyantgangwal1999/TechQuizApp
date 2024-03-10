@@ -24,7 +24,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentQuizBinding
     private var questions: List<QuestionModel>? = null
-    private var timer: String? = null
+    private var timer: Int? = 1
     private var quizID: String? = null
     private lateinit var viewModel: LandingViewModel
     private var currentQuestion = 0

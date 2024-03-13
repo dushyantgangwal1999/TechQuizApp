@@ -5,5 +5,8 @@
     <color name="gray">#F4F4F4</color>
     <color name="orange">#FF8F00</color>
     <color name="blue">#1565C0</color>
+    <color name="traffic_blue">#164674</color>
+    <color name="pastel_blue">#4899AE</color>
+    <color name="ruby_red">#92092E</color>
 
 </resources>

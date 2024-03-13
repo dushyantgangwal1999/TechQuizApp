@@ -24,9 +24,10 @@ class QuizCategoryAdapter(
         }
 
         fun bind(model: QuizModel) {
-            binding?.apply {
+            binding.apply {
                 quizTitleText.text = model.title ?: "NA"
                 quizSubtitleText.text = model.subTitle
+                quizTimeText.text = model.time.toString() + " Min"
             }
         }
     }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ToolbarTitleText">
+        <item name="android:textSize">25sp</item> <!-- Set the text size here -->
+        <item name="titleTextColor">@color/black</item>
+    </style>
+</resources>
